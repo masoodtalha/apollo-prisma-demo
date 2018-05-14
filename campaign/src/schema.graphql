@@ -1,0 +1,16 @@
+# import Post from "./generated/prisma.graphql"
+
+type Query {
+  feed: [Campaign!]!
+  campaign(id: ID!): Campaign
+}
+
+type Mutation {
+  createCampaign(name: String!, imgUrl: String, isPublished: Boolean): Campaign
+  updateCampaign(id: ID!, name: String!, imgUrl: String, isPublished: Boolean): Campaign
+  deleteCampaign(id: ID!): Campaign
+}
+
+type Subscription {
+  campaignAdded(where: CampaignSubscriptionWhereInput): CampaignSubscriptionPayload
+}

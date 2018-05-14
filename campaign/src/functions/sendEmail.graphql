@@ -1,0 +1,12 @@
+
+subscription {
+  campaign(where: {
+    mutation_in: [DELETED],
+  }) {
+    node {
+      id
+      name
+      imgUrl
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  background-color: aliceblue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.addCampaign {
+  margin-left: 20px !important;
+}
+.root {
+  flex-grow: 1;
+  margin: 20px 20px 20px 20px !important;
+}
+
+.paper {
+  height: 270px; 
+  width: 250px;
+}
+
+.updateBtn {
+  margin-left: 20px !important;
+}
+
+.deleteBtn {
+  margin-left: 50px !important;
+}
+
+.campaignTitle {
+  color: green !important;
+}

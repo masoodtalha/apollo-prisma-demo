@@ -1,0 +1,25 @@
+mutation {
+  first: createCampaign(data: {
+    name: "Public Relations 👋",
+    imgUrl: "http://5wpr.net/public-relations-campaign-key-brand-management/",
+    isPublished: true
+  }) {
+    id
+  }
+  
+  second: createCampaign(data: {
+    name: "Green World 🇪🇺 ",
+    imgUrl: "https://www.investing-ethically.co.uk/investing-ethically/wp/wp-content/uploads/2017/05/Naturesave-Insurance-divestment-campaign-pic.png",
+    isPublished: true
+  }) {
+    id
+  }
+  
+  third: createCampaign(data: { 
+    name: "Lives Matter",
+    imgUrl: "https://www.macmillan.org.uk/_images/MAC16449_promo%20grid%20pod-235x235_tcm9-308601.jpg",
+    isPublished: true
+  }) {
+    id
+  }
+}

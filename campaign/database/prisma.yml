@@ -1,0 +1,29 @@
+# The endpoint of your Prisma API (deployed to a Prisma Sandbox).
+endpoint: https://eu1.prisma.sh/bilal-saeed-7b3c8b/campaign/dev
+
+# The file containing the definition of your data model.
+datamodel: datamodel.graphql
+
+# Seed your service with initial data based on `seed.graphql`.
+seed:
+  import: seed.graphql
+
+# Download the GraphQL schema of the Prisma API into 
+# `src/generated/prisma.graphql` (as specfied in `.graphqlconfig.yml`).
+hooks:
+  post-deploy:
+    - graphql get-schema --project database
+
+subscriptions:
+  userDeletedEmail:
+    query: ../src/functions/sendEmail.graphql
+    webhook:
+      url: https://us-central1-test-1e6c8.cloudfunctions.net/sendEmail
+      headers:
+        Content-Type: application/json
+        Authorization: Bearer -----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCsB6eubyVH0NmO\niWkwIGD3KVNxVEybzJqIsxRrY7gUUUpTYUPMUlwwjbUk8/W2Dw56Rmfo7EXQQTrg\nTgA8pKW2aYzwT9TjudtG6i4G4TdgTyqZIRUH9DtwPfqQzre0phMg/xQwPFXtfr4B\nt/KkrK1zHnqz2YJqlwP6eZI28d965bdSziISNJ0Boi6kJ4me5IGQNsbYJBOGG9mT\nHmBUhZMQGxdBtPc6Z4ffVQgfAk8mT80rM2s9bQ2pJ+/njvJZJYIU1TVd7H4V3lxo\nkNLptm+nrKDJkmCl3BNE/QmANYwCmldejkyEXAcGJv4k/qwTuA6lqDW7eE3PSKYm\nIEWNuCtjAgMBAAECggEARTl/XE4VbmS4ZwcccOVWn57dmQkXGsqmlMObP+uMs4BS\nrGLDaYDq4A7mCcyx32UHqmSSg8QwA7F8A67foYePt2uZ70nwnQK5Hjw18UbHhdXV\ninEpiV3aXTxTi9njSqpZoDmE4jQlT8BkrURcO6/QzDZDogOw2zuRukUZdUq3ZzhG\nkKb96qRFzeELbNOIQCtpUUcGkLVIYwUucorJT3Q4fscnGOLIx0/VVBOfhvIw5cMl\nNylYTRGEp/66OqIe8XlmyRcUb9RbSg5YESJz6vayZYhNsrPwntxPPfOUFEXiVan1\nA8EzjEwR1Lhy5Oqukwm7R9hJ3/7tFblVVuKNLX2IgQKBgQDxgb0v8tNL3SbL/StX\n9Kb8QXKW1I/jhDZ4q7traiKC9ketKeJVA/JLG16D1btd2QTd2gjguKfJnCWq4TKJ\nt6gbGipiCUbz0xjCrprQi+Slcva41G8ap088MS8eloDrwazexpgeDXsldjn9rbx0\nLYNlRTen4mTzwivrTKFQu9qtswKBgQC2Wot3IpTqnObt4Aj/RIzfdkp/sZy4I5+M\ntKnwCkoil95Oo/o5HvXfMDWKR6Euzr+WVlgrosSM1zKhCVjwCByZUPdXv5L9BB/v\nY2zkw9Y98/7Bwmk//Ms30UNHNgZCGPg9UubtrtW3bM1cIMVjSx6Vjv/40bqn27yt\nBjpiM2qTkQKBgBezw/2Qt2waqFQc5MQdHsZjJfvnoLeTokT1lc9U+04fHanBEpWF\nbaIxbXVC5MCxK+kaHQTxGoaO7KN4tp0NiVIfn0k/39bOQP/aYxdUo3wZbF13e/AB\nu6UMrrMx0jVRLMYwd317lTp3//kFtBky3lJyGKRBc+b4h5bwTmS+CxhBAoGBAKuR\no1hy7AOVnly/BhgOijCRnmRoWtiRg8MiFCWpuLi1hM8ezwXBUHouZKF25XshwPaU\nxJ5BpYYRzyvenJQyPZ4upJklwQlXQSi9ti3C6CcgE1iALwCqOxWISTGN7fNwhNdF\n0cpdTe0nbEw69RyIB/2VLtcPlPvr7agpjPLqB2NRAoGBAMHmM6bORk1X6gjHneYG\nh5yzHjtcglOdo5+ZApYDznaq+D0wBtyUhVH1jbOh/f+NKkd/Um5CYtITNU2ZtVtk\nBLV8apA5JwDBKkwK6eWNggmBb7g2MWOb753RdR3HDcEk5mcLKtRnZkQCa+UEk51/\nWndAJgYiUNH/vBaviQBcy4Em\n-----END PRIVATE KEY-----\n
+
+# If specified, the `secret` must be used to generate a JWT which is attached
+# to the `Authorization` header of HTTP requests made against the Prisma API.
+# Info: https://www.prisma.io/docs/reference/prisma-api/concepts-utee3eiquo#authentication
+# secret: mysecret123

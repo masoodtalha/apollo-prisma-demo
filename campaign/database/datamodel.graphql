@@ -1,0 +1,6 @@
+type Campaign {
+  id: ID! @unique
+  isPublished: Boolean! @default(value: false)
+  name: String!
+  imgUrl: String!
+}
